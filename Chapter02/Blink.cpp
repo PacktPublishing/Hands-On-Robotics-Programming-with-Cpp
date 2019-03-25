@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <iostream>
 #include <wiringPi.h>
 
 int main(void)
