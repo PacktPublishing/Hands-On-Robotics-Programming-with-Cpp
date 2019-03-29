@@ -33,7 +33,7 @@ int main(void)
 	for(;;)
 	{
 		vid.read(videofeed);
-		flip(videofeed, videofeed, 1);
+		flip(videofeed, videofeed, 1); //If your RPi camera is fitted upside down, change the third parameter to 0 for vertical flip
         cvtColor(videofeed, grayfeed, COLOR_BGR2GRAY);
 		equalizeHist(grayfeed, grayfeed);
         
@@ -56,7 +56,7 @@ int main(void)
 				circle(videofeed, center, radius, Scalar(0, 0, 255), 2, 8, 0);
 		   }
 		   
-		/*eyeDetectorleft.detectMultiScale(faceROI, lefteye, 1.3, 25, 0 |CASCADE_SCALE_IMAGE,Size(30, 30));
+	/*	eyeDetectorleft.detectMultiScale(faceROI, lefteye, 1.3, 25, 0 |CASCADE_SCALE_IMAGE,Size(30, 30));
 		  for (size_t le = 0; le < lefteye.size(); le++)
 			{
 		        Point center(face[f].x + lefteye[le].x + lefteye[le].width*0.5, face[f].y + lefteye[le].y + lefteye[le].height*0.5);
@@ -82,14 +82,9 @@ int main(void)
      }
           imshow("Facial Detection", videofeed);
 		
-		if (waitKey(1) == 27) break;
+		if (waitKey(1) >= 0) break;
 
 	}
 	return 0;
 }
-
-
-
-
-
 

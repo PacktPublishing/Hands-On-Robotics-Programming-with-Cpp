@@ -24,7 +24,7 @@ int main(void)
 	for(;;)
 	{
 		vid.read(videofeed);
-		flip(videofeed, videofeed, 1);
+		flip(videofeed, videofeed, 1);  //If your RPi camera is fitted upside down, change the third parameter to 0 for vertical flip
                 cvtColor(videofeed, grayfeed, COLOR_BGR2GRAY);
 		equalizeHist(grayfeed, grayfeed);
         
@@ -38,12 +38,8 @@ int main(void)
      }
           imshow("Face Detection", videofeed);
 		
-		if (waitKey(1) == 27) break;
+		if (waitKey(1) >= 0) break;
 
 	}
 	return 0;
 }
-
-
-
-
