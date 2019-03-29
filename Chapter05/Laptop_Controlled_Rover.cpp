@@ -1,6 +1,33 @@
 #include <ncurses.h>
 #include <stdio.h>
 #include <wiringPi.h>
+
+
+void forward()
+{
+digitalWrite(0,HIGH);
+digitalWrite(2,LOW);
+digitalWrite(3,HIGH);
+digitalWrite(4,LOW);
+}
+
+void rightturn()
+{
+digitalWrite(0,HIGH); 
+digitalWrite(2,LOW); 
+digitalWrite(3,LOW); 
+digitalWrite(4,HIGH);
+}
+
+void stop()
+{
+digitalWrite(0,HIGH); 
+digitalWrite(2,HIGH); 
+digitalWrite(3,HIGH); 
+digitalWrite(4,HIGH);
+}
+
+
 int main()
 {
 wiringPiSetup();
@@ -54,7 +81,7 @@ if(keypressed == 'r' || keypressed == 'R')
 forward();                             //first forward movement
 delay(2000);
 rightturn();                             //first left turn
-delay(500);                            //delay needs to be such that the robot takes a perfect 90º right turn
+delay(500);                            //delay needs to be such that the robot takes a perfect 90 degree right turn
 
 forward();                            //second forward movement
 delay(2000);
@@ -77,28 +104,4 @@ break;
 }
 endwin(); 
 return 0;	
-}
-
-void forward()
-{
-digitalWrite(0,HIGH);
-digitalWrite(2,LOW);
-digitalWrite(3,HIGH);
-digitalWrite(4,LOW);
-}
-
-void rightturn()
-{
-digitalWrite(0,HIGH); 
-digitalWrite(2,LOW); 
-digitalWrite(3,LOW); 
-digitalWrite(4,HIGH);
-}
-
-void stop()
-{
-digitalWrite(0,HIGH); 
-digitalWrite(2,HIGH); 
-digitalWrite(3,HIGH); 
-digitalWrite(4,HIGH);
 }
