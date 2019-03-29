@@ -12,7 +12,7 @@
 #define LCD_CHR  1 // Mode - Sending data
 #define LCD_CMD  0 // Mode - Sending command
 
-// LCD_BACKLIGHT = 0x00  # Off
+#define LCD_BACKLIGHT 0x08
 
 #define ENABLE  0b00000100 // Enable bit
 
@@ -30,7 +30,7 @@ int lcdaddr;
 int main()   {
   wiringPiSetup();
   lcdaddr = wiringPiI2CSetup(I2C_DEVICE_ADDRESS);
-  init_lcd(); // setup LCD
+  init_lcd(); // initializing or setting up the LCD
   for(;;)  {
     moveCursor(firstrow);
     printmessage("LCD OUTPUT");
@@ -50,6 +50,7 @@ int main()   {
     float fNumber = 3.14;
     printFloat(fNumber);
     delay(2000);
+    clear();
   }
   return 0;
 }
@@ -99,8 +100,8 @@ void lcd_byte(int bits, int mode)   {
   int bits_high;
   int bits_low;
 
-  bits_high = mode | (bits & 0xF0) | LCD_BACKLIGHT ;
-  bits_low = mode | ((bits << 4) & 0xF0) | LCD_BACKLIGHT ;
+  bits_high = mode | (bits & 0xF0) | LCD_BACKLIGHT;
+  bits_low = mode | ((bits << 4) & 0xF0) | LCD_BACKLIGHT;
 
 
   wiringPiI2CReadReg8(lcdaddr, bits_high);
@@ -131,3 +132,4 @@ void init_lcd()   {
   lcd_byte(0x01, LCD_CMD); 
   delayMicroseconds(500);
 }
+
