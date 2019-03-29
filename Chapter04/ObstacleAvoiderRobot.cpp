@@ -1,9 +1,9 @@
-
-#include <stdio.h>
-#include <iostream>
+#include <wiringPiI2C.h>
 #include <wiringPi.h>
-#define echo 3
-#define trigger 2
+#include <stdlib.h>
+#include <stdio.h>
+
+using namespace std;
 
 // Definining device parameters
 #define I2C_DEVICE_ADDRESS   0x27 // I2C device address
@@ -14,9 +14,16 @@
 #define LCD_CHR  1 // Mode - Sending data
 #define LCD_CMD  0 // Mode - Sending command
 
-// LCD_BACKLIGHT = 0x00  # Off
+#define LCD_BACKLIGHT 0x08
 
 #define ENABLE  0b00000100 // Enable bit
+
+#define trigger 12
+#define echo 13
+
+long startTime;
+long stopTime;
+
 
 void init_lcd(void);
 void lcd_byte(int bits, int mode);
@@ -29,53 +36,45 @@ void printInt(int i);
 void printFloat(float myFloat);
 int lcdaddr; 
 
-
-long startTime;
-long stopTime;
-
-using namespace std;
-
-int main()
-{
-	wiringPiSetup();
-	
-	pinMode(trigger,OUTPUT);
-	pinMode(echo, INPUT);
-	pinMode(13,OUTPUT);
-	pinMode(14,OUTPUT);
-	pinMode(6,OUTPUT);
-	pinMode(10,OUTPUT);
-	
+int main()   {
+  wiringPiSetup();
   lcdaddr = wiringPiI2CSetup(I2C_DEVICE_ADDRESS);
-  init_lcd(); // setup LCD
+  init_lcd(); //initializing or setting up the LCD
   
-for(;;){
-	digitalWrite(trigger,LOW);
-	delay(500);
-	digitalWrite(trigger,HIGH);
-	delayMicroseconds(10);
-	digitalWrite(trigger,LOW);
-		
-	while(digitalRead(echo) == LOW);
-	startTime = micros();
-	
-	while(digitalRead(echo) == HIGH);
-	stopTime = micros();	
+  pinMode(trigger,OUTPUT);
+  pinMode(echo, INPUT);
+  pinMode(0,OUTPUT); 
+  pinMode(2,OUTPUT);
+  pinMode(3,OUTPUT);
+  pinMode(4,OUTPUT); 
+  
+  for(;;)  {
+	  
+ digitalWrite(trigger,LOW);
+ delay(500);
+
+ digitalWrite(trigger,HIGH);
+ delayMicroseconds(10);
+
+ digitalWrite(trigger,LOW); 
+
+ while(digitalRead(echo) == LOW);
+ startTime = micros();
+
+ while(digitalRead(echo) == HIGH);
+ stopTime = micros(); 
  
-		
-	long traveltime = stopTime - startTime;
-		
-	float distance = (totalTime * 0.034)/2;
-	
-		
-	cout << "Distance is: " << distance << " cm"<<endl;
-	if(distance < 7)
+long totalTime= stopTime - startTime; 
+ float distance = (totalTime * 0.034)/2;
+ 
+ //cout << "Distance is: " << distance << " cm"<<endl;
+ 
+if(distance < 20)
    {
-   digitalWrite(13,LOW);
-   digitalWrite(14,HIGH);
-   digitalWrite(6,HIGH);
-   digitalWrite(10,LOW);
-   delay(500);
+   digitalWrite(0,LOW);
+   digitalWrite(2,HIGH);
+   digitalWrite(3,HIGH);
+   digitalWrite(4,LOW);
    moveCursor(firstrow);
    printmessage("Obstacle Status");
    moveCursor(secondrow);
@@ -84,21 +83,20 @@ for(;;){
    }
    else
    {
-   digitalWrite(13,HIGH);
-   digitalWrite(14,LOW);
-   digitalWrite(6,HIGH);
-   digitalWrite(10,LOW);
+   digitalWrite(0,HIGH);
+   digitalWrite(2,LOW);
+   digitalWrite(3,HIGH);
+   digitalWrite(4,LOW);
    moveCursor(firstrow);
    printmessage("Obstacle Status");
    moveCursor(secondrow);
    printmessage("No Obstacle");
    clear();
 }
-}
-return 0;
 
+  }
+  return 0;
 }
-
 
 
 void printFloat(float myFloat)   {
@@ -145,8 +143,8 @@ void lcd_byte(int bits, int mode)   {
   int bits_high;
   int bits_low;
 
-  bits_high = mode | (bits & 0xF0) | LCD_BACKLIGHT ;
-  bits_low = mode | ((bits << 4) & 0xF0) | LCD_BACKLIGHT ;
+  bits_high = mode | (bits & 0xF0) | LCD_BACKLIGHT;
+  bits_low = mode | ((bits << 4) & 0xF0) | LCD_BACKLIGHT;
 
 
   wiringPiI2CReadReg8(lcdaddr, bits_high);
@@ -177,5 +175,7 @@ void init_lcd()   {
   lcd_byte(0x01, LCD_CMD); 
   delayMicroseconds(500);
 }
+
+
 
 
