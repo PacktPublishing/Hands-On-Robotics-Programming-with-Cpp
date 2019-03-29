@@ -46,35 +46,35 @@ int main(void)
         digitalWrite(0,HIGH);
         digitalWrite(2,LOW);		
         digitalWrite(3,HIGH);
-	digitalWrite(4,LOW);
+	    digitalWrite(4,LOW);
         }
         else if(*data=='B')
         {
         digitalWrite(0,LOW);
         digitalWrite(2,HIGH);		
         digitalWrite(3,LOW);
-	digitalWrite(4,HIGH);
+	    digitalWrite(4,HIGH);
         }
 	else if(*data=='L')
         {
         digitalWrite(0,LOW);
         digitalWrite(2,HIGH);		
-        digitalWrite(4,HIGH);
-	digitalWrite(4,LOW);
+        digitalWrite(3,HIGH);
+	    digitalWrite(4,LOW);
         }
 	else if(*data=='R')
         {
         digitalWrite(0,HIGH);
         digitalWrite(2,LOW);		
         digitalWrite(3,LOW);
-	digitalWrite(4,HIGH);
+	    digitalWrite(4,HIGH);
         }
 	else if(*data=='S')
         {
         digitalWrite(0,LOW);
         digitalWrite(2,LOW);		
         digitalWrite(3,LOW);
-	digitalWrite(4,LOW);	
+	    digitalWrite(4,LOW);	
         }
     }
 }
@@ -83,4 +83,3 @@ int main(void)
     close(s);
     return 0;
 }
-
