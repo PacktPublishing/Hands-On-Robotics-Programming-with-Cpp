@@ -41,7 +41,8 @@ int main(void)
 	for(;;)
 	{
 	vid.read(videofeed);
-	flip(videofeed, videofeed, 1);
+	flip(videofeed, videofeed, 1); //If your RPi camera is fitted upside down, change the third parameter to 0 for vertical flip
+                
 	cvtColor(videofeed, grayfeed, COLOR_BGR2GRAY);
 	equalizeHist(grayfeed, grayfeed);
         
@@ -118,23 +119,26 @@ int main(void)
 		 }
 		 
 		if(facex > 0 && facex < 280)
-			{
+		{
+/*Now since the camera and the face are looking at each other, so when the white dot moves on the left side 
+ * of the camera the robot should take a right turn in order to follow the white dot*/
 		putText(videofeed, "Left", Point(320,10), FONT_HERSHEY_PLAIN, 1.0, CV_RGB(0, 0, 255), 2.0); 
-		softPwmWrite(24, 0);
-		softPwmWrite(27, 30);
-        softPwmWrite(25, 30);
-		softPwmWrite(28, 0); 
-			}	
+		softPwmWrite(24, 30);
+		softPwmWrite(27, 0);
+        softPwmWrite(25, 0);
+		softPwmWrite(28, 30); 
+		}	
 			
 		if(facex > 360 && facex < 640)
-			{
+		{
+/*Similarly since the camera and the face are looking at each other, so when the white dot moves on the right side 
+ * of the camera the robot should take a left turn in order to follow the white dot*/
 		putText(videofeed, "Right", Point(320,10), FONT_HERSHEY_PLAIN, 1.0, CV_RGB(0, 0, 255), 2.0); 
-	    softPwmWrite(24, 30);
-        softPwmWrite(27, 0);
-        softPwmWrite(25, 0);
-        softPwmWrite(28, 30);
-		
-			}
+	    softPwmWrite(24, 0);
+        softPwmWrite(27, 30);
+        softPwmWrite(25, 30);
+        softPwmWrite(28, 0);
+		}
 	    if(facex > 280 && facex < 360)
 			{
 		putText(videofeed, "Middle", Point(320,10), FONT_HERSHEY_PLAIN, 1.0, CV_RGB(0, 0, 255), 2.0); 
@@ -145,15 +149,8 @@ int main(void)
 			}
         imshow("Facial Detection", videofeed);
 		
-		if (waitKey(1) == 27) break;
+		if (waitKey(1) >= 0) break;
 
 	}
 	return 0;
 }
-
-
-
-
-
-
-
