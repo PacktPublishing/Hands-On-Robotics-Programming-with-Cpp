@@ -47,7 +47,7 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 * Mastering ROS for Robotics Programming [[PACKT]](https://prod.packtpub.com/hardware-and-creative/mastering-ros-robotics-programming?utm_source=github&utm_medium=repository&utm_campaign=9781783551798) [[Amazon]](https://www.amazon.com/dp/1788478959)
 
 
-## Get to Know the Authors
+## Get to Know the Author
 **Dinesh Tavasalkar** is a trainer and online instructor from India. He has trained more than 8,000+ students on topics related to robotics, Internet of Things, Arduino, Raspberry Pi, Android app development, augmented reality, and virtual reality. Dinesh's online courses have been undertaken by 25,000+ people on Udemy from more than 150+ countries. Some of his popular courses on Udemy include Robotics for beginners, Smartphone Control Robot using Arduino and Android, Build Augmented Reality apps using Unity and Vuforia, and Build Virtual Reality games for Google Cardboard using Unity. He also runs a YouTube channel called EngineersDream, where he teaches Android application development.
 
 
