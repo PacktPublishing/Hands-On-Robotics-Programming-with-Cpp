@@ -21,7 +21,7 @@ This book covers the following exciting features:
 * Program an RPi camera using OpenCV Control a Raspberry Pi robot with voice commands
 * Implement face and object detection with Raspberry Pi
 
-If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1-789-13900-7) today!
+If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1789139007) today!
 
 <a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" 
 alt="https://www.packtpub.com/" border="5" /></a>
@@ -42,9 +42,9 @@ With the following software and hardware list you can run all code files present
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://www.packtpub.com/sites/default/files/downloads/9781789139006_ColorImages.pdf).
 
 ### Related products
-* Learn Robotics Programming [[PACKT]](https://prod.packtpub.com/hardware-and-creative/learn-robotics-programming?utm_source=github&utm_medium=repository&utm_campaign=9781789340747) [[Amazon]](https://www.amazon.com/dp/1-789-34074-8)
+* Learn Robotics Programming [[PACKT]](https://prod.packtpub.com/hardware-and-creative/learn-robotics-programming?utm_source=github&utm_medium=repository&utm_campaign=9781789340747) [[Amazon]](https://www.amazon.com/dp/1789340748)
 
-* Mastering ROS for Robotics Programming [[PACKT]](https://prod.packtpub.com/hardware-and-creative/mastering-ros-robotics-programming?utm_source=github&utm_medium=repository&utm_campaign=9781783551798) [[Amazon]](https://www.amazon.com/dp/1-788-47895-9)
+* Mastering ROS for Robotics Programming [[PACKT]](https://prod.packtpub.com/hardware-and-creative/mastering-ros-robotics-programming?utm_source=github&utm_medium=repository&utm_campaign=9781783551798) [[Amazon]](https://www.amazon.com/dp/1788478959)
 
 
 ## Get to Know the Authors
