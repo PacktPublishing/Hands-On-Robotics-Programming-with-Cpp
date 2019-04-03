@@ -13,7 +13,7 @@ pinMode(4,OUTPUT);
  for(int i=0; i<1;i++)
  {
 	 
-/* FORWARD */
+/* FORWARD  */
 digitalWrite(0,HIGH); //PIN O & 2 will move the Left Motor Forward
 digitalWrite(2,LOW);
 digitalWrite(3,HIGH); //PIN 3 & 4 will move the Right Motor Forward
