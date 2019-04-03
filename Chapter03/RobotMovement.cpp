@@ -20,7 +20,7 @@ digitalWrite(3,HIGH); //PIN 3 & 4 will move the Right Motor Forward
 digitalWrite(4,LOW);
 delay(3000);
 
-/* BACKWARD */
+/* BACKWARD  */
 digitalWrite(0,LOW); 
 digitalWrite(2,HIGH);
 digitalWrite(3,LOW); 
