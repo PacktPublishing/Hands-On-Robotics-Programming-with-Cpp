@@ -56,7 +56,7 @@ int main(void)
 				circle(videofeed, center, radius, Scalar(0, 0, 255), 2, 8, 0);
 		   }
 		   
-	/*	eyeDetectorleft.detectMultiScale(faceROI, lefteye, 1.3, 25, 0 |CASCADE_SCALE_IMAGE,Size(30, 30));
+	/* 	eyeDetectorleft.detectMultiScale(faceROI, lefteye, 1.3, 25, 0 |CASCADE_SCALE_IMAGE,Size(30, 30));
 		  for (size_t le = 0; le < lefteye.size(); le++)
 			{
 		        Point center(face[f].x + lefteye[le].x + lefteye[le].width*0.5, face[f].y + lefteye[le].y + lefteye[le].height*0.5);
