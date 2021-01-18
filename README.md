@@ -1,8 +1,3 @@
-## $5 Tech Unlocked 2021!
-[Buy and download this Book for only $5 on PacktPub.com](https://www.packtpub.com/product/hands-on-robotics-programming-with-c/9781789139006)
------
-*If you have read this book, please leave a review on [Amazon.com](https://www.amazon.com/gp/product/1789139007).     Potential readers can then use your unbiased opinion to help them make purchase decisions. Thank you. The $5 campaign         runs from __December 15th 2020__ to __January 13th 2021.__*
-
 # Hands-On Robotics Programming with Cpp 
 
 <a href="https://prod.packtpub.com/hardware-and-creative/hands-robotics-programming-c?utm_source=github&utm_medium=repository&utm_campaign=9781789139006">  <img src="https://prod.packtpub.com/media/catalog/product/cache/a22c7d190d97ca25f5f1089471ab8502/b/1/b10651_mockupcover_0.png" alt="Hands-On Robotics Programming with Cpp" height="256px" align="right"></a>
